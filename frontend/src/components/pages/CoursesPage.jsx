@@ -46,8 +46,36 @@ export function CoursesPage({ onBack, onSelectCourse }) {
       setLoading(true);
       setError(null);
 
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api'}/content`);
+      const timestamp = new Date().getTime();
+      const apiUrl = `https://assignment-sneha-production.up.railway.app/api/content?t=${timestamp}`;
+      
+      console.log('🌐 API URL:', apiUrl);
+      console.log('🔧 Environment variables:', { 
+        VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
+        NODE_ENV: import.meta.env.NODE_ENV,
+        MODE: import.meta.env.MODE
+      });
+      
+      const response = await fetch(apiUrl, {
+        cache: 'no-cache',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      });
+      
+      console.log('📡 Response status:', response.status);
+      console.log('📡 Response headers:', [...response.headers.entries()]);
+      
       const data = await response.json();
+      
+      console.log('📊 API Data received:', {
+        success: data.success,
+        contentCount: data.content?.length,
+        firstItemTitle: data.content?.[0]?.title,
+        fullResponse: data
+      });
 
       if (data.success) {
         setLearningModules(data.content || []);

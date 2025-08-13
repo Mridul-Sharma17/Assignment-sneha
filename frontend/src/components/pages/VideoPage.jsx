@@ -45,7 +45,15 @@ export function VideoPage({ onBack, onSelectVideo }) {
       setLoading(true);
       setError(null);
 
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api'}/content`);
+      const timestamp = new Date().getTime();
+      const response = await fetch(`https://assignment-sneha-production.up.railway.app/api/content?t=${timestamp}`, {
+        cache: 'no-cache',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      });
       const data = await response.json();
 
       if (data.success) {
