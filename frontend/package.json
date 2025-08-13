@@ -1,8 +1,9 @@
 {
-  "name": "frontend",
+  "name": "edutrack-analytics-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "EduTrack Analytics Platform - Smart Learning Management System Frontend",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

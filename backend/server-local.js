@@ -97,7 +97,7 @@ app.get('/api/health', (req, res) => {
   const clickstream = readDB('clickstream');
   
   res.status(200).json({ 
-    message: 'Learning Website API is running!', 
+    message: 'EduTrack Analytics Platform API is running!', 
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'development',
     database: 'Local JSON Database',

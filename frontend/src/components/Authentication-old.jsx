@@ -64,16 +64,17 @@ export function Authentication({ onAuthSuccess }) {
   const isLoginMode = authMode === AUTH_MODES.LOGIN;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex">
       <div className="absolute inset-0 -z-10 h-full w-full bg-slate-900 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       <div className="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(100%_50%_at_50%_0%,rgba(139,69,255,0.15)_0,rgba(139,69,255,0)_50%,rgba(139,69,255,0)_100%)]"></div>
-      <div className="w-full max-w-md space-y-8">
-        {/* Header Section */}
-        <div className="text-center space-y-6">
-          {/* Logo */}
+      
+      {/* LEFT SIDE - Branding & Info */}
+      <div className="hidden lg:flex lg:w-1/2 flex-col justify-center items-center p-12 relative">
+        <div className="max-w-md text-center space-y-8">
+          {/* Large Logo */}
           <div className="flex justify-center">
-            <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-4 shadow-lg">
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-3xl p-6 shadow-2xl">
+              <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
                       d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
@@ -81,25 +82,61 @@ export function Authentication({ onAuthSuccess }) {
           </div>
 
           {/* Title and Description */}
-          <div className="space-y-3">
-            <h1 className="text-4xl font-bold text-white tracking-tight">
+          <div className="space-y-4">
+            <h1 className="text-5xl font-bold text-white tracking-tight">
               EduTrack Analytics
             </h1>
-            <p className="text-lg text-gray-400 font-medium">
+            <p className="text-xl text-gray-300 font-medium">
               Advanced Learning Analytics Platform
             </p>
-            
-            {/* Feature Badges */}
-            <div className="flex justify-center gap-2 flex-wrap">
-              <Badge variant="secondary" className="text-xs px-3 py-1 bg-purple-500 text-white">
-                📊 Learning Analytics
-              </Badge>
-              <Badge variant="outline" className="text-xs px-3 py-1 bg-pink-500 text-white">
-                🎯 Data-Driven Insights
-              </Badge>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              Unlock the power of data-driven learning with comprehensive analytics, 
+              personalized insights, and interactive data science modules.
+            </p>
+          </div>
+
+          {/* Feature Highlights */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+              <div className="text-2xl mb-2">📊</div>
+              <h3 className="text-white font-semibold mb-1">Learning Analytics</h3>
+              <p className="text-gray-400 text-sm">Real-time insights into your progress</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+              <div className="text-2xl mb-2">🧠</div>
+              <h3 className="text-white font-semibold mb-1">AI-Powered</h3>
+              <p className="text-gray-400 text-sm">Personalized learning recommendations</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+              <div className="text-2xl mb-2">🎯</div>
+              <h3 className="text-white font-semibold mb-1">Data Science Focus</h3>
+              <p className="text-gray-400 text-sm">Specialized curriculum for data science</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+              <div className="text-2xl mb-2">⚡</div>
+              <h3 className="text-white font-semibold mb-1">Interactive Learning</h3>
+              <p className="text-gray-400 text-sm">Hands-on modules and assessments</p>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* RIGHT SIDE - Authentication Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
+        <div className="w-full max-w-md space-y-6">
+          {/* Mobile Logo (shown only on small screens) */}
+          <div className="lg:hidden text-center space-y-4">
+            <div className="flex justify-center">
+              <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-4 shadow-lg">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+            </div>
+            <h1 className="text-3xl font-bold text-white">EduTrack Analytics</h1>
+            <p className="text-gray-400">Advanced Learning Analytics Platform</p>
+          </div>
 
         {/* Main Authentication Card */}
         <Card className="shadow-xl border-0 bg-white/5 backdrop-blur-sm">

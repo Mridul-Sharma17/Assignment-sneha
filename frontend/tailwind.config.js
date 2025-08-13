@@ -20,6 +20,46 @@ export default {
       },
     },
     extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(262 83% 58%)",
+          foreground: "hsl(210 20% 98%)",
+        },
+        secondary: {
+          DEFAULT: "hsl(220 14.3% 95.9%)",
+          foreground: "hsl(220.9 39.3% 11%)",
+        },
+        destructive: {
+          DEFAULT: "hsl(0 84.2% 60.2%)",
+          foreground: "hsl(210 20% 98%)",
+        },
+        muted: {
+          DEFAULT: "hsl(220 14.3% 95.9%)",
+          foreground: "hsl(220 8.9% 46.1%)",
+        },
+        accent: {
+          DEFAULT: "hsl(142 76% 36%)",
+          foreground: "hsl(355.7 100% 97.3%)",
+        },
+        popover: {
+          DEFAULT: "hsl(0 0% 100%)",
+          foreground: "hsl(224 71.4% 4.1%)",
+        },
+        card: {
+          DEFAULT: "hsl(0 0% 100%)",
+          foreground: "hsl(224 71.4% 4.1%)",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

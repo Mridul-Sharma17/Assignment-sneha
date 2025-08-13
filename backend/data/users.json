@@ -5,7 +5,7 @@
     "email": "test@example.com",
     "password": "password123",
     "createdAt": "2025-08-11T17:59:51.081Z",
-    "lastLogin": "2025-08-11T17:59:59.197Z"
+    "lastLogin": "2025-08-13T08:26:55.866Z"
   },
   {
     "id": 2,
@@ -22,5 +22,13 @@
     "password": "Hbd@681727",
     "createdAt": "2025-08-12T20:10:41.824Z",
     "lastLogin": "2025-08-12T20:18:07.015Z"
+  },
+  {
+    "id": 4,
+    "username": "testuser_1755073615872",
+    "email": "test_1755073615872@example.com",
+    "password": "testpassword123",
+    "createdAt": "2025-08-13T08:26:55.874Z",
+    "lastLogin": null
   }
 ]

@@ -1,34 +1,35 @@
-# Learning Website with Clickstream Tracking
+# EduTrack - Smart Learning Analytics Platform
 
-A MERN stack learning platform that tracks user interactions and provides interactive content including text, videos, and quizzes.
+An advanced MERN stack educational platform featuring intelligent user behavior tracking and comprehensive learning analytics with multimedia content delivery.
 
-## 🌐 Live Demo
-- **Frontend**: Deployed on Vercel
-- **Backend**: Deployed on Railway
+## 🌐 Live Deployment
+- **Frontend Application**: Hosted on Vercel
+- **Backend Services**: Deployed on Railway Cloud
 
-## 🚀 Features
+## ✨ Key Features
 
-- User registration and authentication
-- Interactive learning content (text, videos, quizzes)
-- Real-time clickstream tracking
-- User dashboard and progress tracking
-- Responsive design with Shadcn UI
+- Secure user authentication and authorization
+- Multi-format learning materials (articles, videos, assessments)
+- Advanced user interaction analytics
+- Comprehensive learning analytics dashboard
+- Progress monitoring and achievement tracking
+- Modern responsive UI with ShadcnUI components
 
-## 🛠️ Tech Stack
+## � Technology Stack
 
-- **Frontend**: React.js with Vite, Shadcn UI
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB Atlas
-- **Authentication**: JWT
-- **Deployment**: Vercel
+- **Frontend**: React.js with Vite bundler, ShadcnUI components
+- **Backend**: Node.js with Express.js framework
+- **Database**: MongoDB Atlas cloud database
+- **Authentication**: JSON Web Tokens (JWT)
+- **Deployment**: Vercel (frontend) & Railway (backend)
 
-## 📁 Project Structure
+## � Application Structure
 
 ```
-├── frontend/          # React application
-├── backend/           # Express API server
-├── docs/             # Documentation
-└── README.md         # Project documentation
+├── frontend/          # React client application
+├── backend/           # Express.js API server
+├── documentation/     # Project documentation
+└── README.md         # Application overview
 ```
 
 ## 🔧 Setup Instructions
