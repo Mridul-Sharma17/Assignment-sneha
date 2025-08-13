@@ -1,87 +1,88 @@
 [
   {
     "id": 1,
-    "title": "Fundamentals of Data Science",
+    "title": "Introduction to Data Analytics",
     "type": "text",
     "category": "Data Science",
-    "level": "Intermediate",
-    "duration": "35 min",
-    "description": "Explore data analysis techniques, statistical methods, and machine learning basics for modern data science",
-    "content": "Data Science is an interdisciplinary field that combines statistical analysis, machine learning, and domain expertise to extract insights from data. It involves several key components: data collection and cleaning, exploratory data analysis, statistical modeling, and machine learning algorithms. Python and R are the primary programming languages used, with libraries like pandas, numpy, scikit-learn, and matplotlib being essential tools. The data science workflow typically includes problem definition, data acquisition, data preparation, modeling, evaluation, and deployment. Understanding concepts like correlation vs causation, bias in data, and model validation is crucial for successful data science projects.",
-    "tags": ["Python", "Statistics", "Machine Learning", "Analytics"],
+    "level": "Beginner",
+    "duration": "30 min",
+    "description": "Start your journey into data analytics with essential concepts and practical techniques",
+    "content": "Data Analytics is the process of examining data sets to draw conclusions about the information they contain. This field has become essential in today's data-driven world, where organizations rely on insights to make informed decisions. Key areas include descriptive analytics (what happened), diagnostic analytics (why it happened), predictive analytics (what will happen), and prescriptive analytics (what should we do). Essential tools include Excel for basic analysis, SQL for database queries, Python and R for statistical computing, and visualization tools like Tableau and Power BI. The analytics process involves data collection, cleaning, exploration, analysis, and interpretation. Understanding data types, statistical measures, and visualization techniques forms the foundation for effective data analysis.",
+    "tags": ["Analytics", "Data Science", "Statistics", "Visualization"],
     "createdAt": "2025-08-13T10:13:42.949Z"
   },
   {
     "id": 2,
-    "title": "Python Programming Essentials",
+    "title": "Advanced Python for Data Science",
     "type": "video",
     "category": "Programming",
-    "level": "Intermediate",
-    "duration": "50 min",
-    "description": "Deep dive into Python programming with advanced concepts and real-world applications",
+    "level": "Advanced",
+    "duration": "45 min",
+    "description": "Master advanced Python techniques specifically designed for data science workflows",
     "videoUrl": "https://www.youtube.com/watch?v=rfscVS0vtbw",
-    "tags": ["Python", "OOP", "Data Structures", "Algorithms"],
+    "tags": ["Python", "Data Science", "Advanced Programming", "Libraries"],
     "createdAt": "2025-08-13T10:13:42.949Z"
   },
   {
     "id": 3,
-    "title": "Python Fundamentals Assessment",
+    "title": "Data Analytics Skills Assessment",
     "type": "quiz",
-    "category": "Programming",
+    "category": "Data Science",
     "level": "Intermediate",
-    "duration": "20 min",
-    "description": "Comprehensive assessment of Python programming concepts and practical applications",
-    "tags": ["Python", "Assessment", "Programming"],
+    "duration": "25 min",
+    "description": "Test your knowledge of data analytics concepts, tools, and methodologies",
+    "tags": ["Assessment", "Analytics", "Skills Evaluation"],
     "quizData": {
       "questions": [
         {
-          "question": "Which of the following is the correct way to define a function in Python?",
+          "question": "What is the primary purpose of exploratory data analysis (EDA)?",
           "options": [
-            "def function_name():",
-            "function function_name():",
-            "define function_name():",
-            "func function_name():"
+            "To create final visualizations for presentations",
+            "To understand data patterns and identify anomalies",
+            "To build machine learning models",
+            "To clean and format data"
+          ],
+          "correct": 1
+        },
+        {
+          "question": "Which Python library is most commonly used for data manipulation?",
+          "options": [
+            "NumPy",
+            "Matplotlib",
+            "Pandas",
+            "Seaborn"
+          ],
+          "correct": 2
+        },
+        {
+          "question": "What does SQL stand for?",
+          "options": [
+            "Statistical Query Language",
+            "Structured Query Language",
+            "Simple Query Language",
+            "Sequential Query Language"
+          ],
+          "correct": 1
+        },
+        {
+          "question": "Which visualization is best for showing correlation between two variables?",
+          "options": [
+            "Bar chart",
+            "Pie chart",
+            "Scatter plot",
+            "Line chart"
+          ],
+          "correct": 2
+        },
+        {
+          "question": "What is the difference between supervised and unsupervised learning?",
+          "options": [
+            "Supervised uses labeled data, unsupervised doesn't",
+            "Supervised is faster than unsupervised",
+            "Supervised uses more data than unsupervised",
+            "There is no difference"
           ],
           "correct": 0
-        },
-        {
-          "question": "What data type is the result of: type([1, 2, 3])?",
-          "options": [
-            "<class 'list'>",
-            "<class 'dict'>",
-            "<class 'set'>"
-          ],
-          "correct": 1
-        },
-        {
-          "question": "Which keyword is used to create a class in Python?",
-          "options": [
-            "create",
-            "class",
-            "def",
-            "object"
-          ],
-          "correct": 1
-        },
-        {
-          "question": "What is the correct way to import a specific function from a module?",
-          "options": [
-            "import function from module",
-            "from module import function",
-            "import module.function",
-            "from function import module"
-          ],
-          "correct": 1
-        },
-        {
-          "question": "Which method is used to add an element to the end of a Python list?",
-          "options": [
-            "add()",
-            "append()",
-            "insert()",
-            "push()"
-          ],
-          "correct": 1
         }
       ]
     },
@@ -89,78 +90,78 @@
   },
   {
     "id": 4,
-    "title": "Machine Learning with Scikit-Learn",
+    "title": "Machine Learning Fundamentals",
     "type": "text",
-    "category": "Data Science",
-    "level": "Advanced",
-    "duration": "55 min",
-    "description": "Comprehensive introduction to machine learning algorithms and implementation using Scikit-Learn",
-    "content": "Machine Learning is a subset of artificial intelligence that enables computers to learn and make decisions from data without being explicitly programmed. Scikit-learn is Python's most popular machine learning library, providing simple and efficient tools for data mining and analysis. The library supports various algorithms including supervised learning (classification and regression), unsupervised learning (clustering and dimensionality reduction), and model selection techniques. Key concepts include training and testing data splits, cross-validation for model evaluation, feature scaling and selection, and hyperparameter tuning. Common algorithms include linear regression, decision trees, random forests, support vector machines, and k-means clustering. Understanding when to use each algorithm and how to evaluate model performance using metrics like accuracy, precision, recall, and F1-score is essential for successful machine learning projects.",
-    "tags": ["Machine Learning", "Scikit-Learn", "Algorithms", "Classification"],
+    "category": "AI & ML",
+    "level": "Intermediate",
+    "duration": "40 min",
+    "description": "Comprehensive introduction to machine learning concepts and practical applications",
+    "content": "Machine Learning (ML) is a branch of artificial intelligence that focuses on building systems that can learn from data and make predictions or decisions without being explicitly programmed for every scenario. There are three main types of ML: supervised learning (using labeled data), unsupervised learning (finding patterns in unlabeled data), and reinforcement learning (learning through interaction and feedback). Common supervised learning tasks include classification (predicting categories) and regression (predicting continuous values). Popular algorithms include linear regression, decision trees, random forests, and neural networks. The ML workflow involves data preprocessing, feature selection, model training, evaluation using metrics like accuracy and precision, and deployment. Understanding concepts like overfitting, cross-validation, and bias-variance tradeoff is crucial for building effective ML models.",
+    "tags": ["Machine Learning", "AI", "Algorithms", "Prediction"],
     "createdAt": "2025-08-13T10:13:42.949Z"
   },
   {
     "id": 5,
-    "title": "Data Visualization with Matplotlib & Seaborn",
+    "title": "Business Intelligence & Tableau",
     "type": "video",
-    "category": "Data Science",
+    "category": "Business Analytics",
     "level": "Intermediate",
-    "duration": "45 min",
-    "description": "Create compelling data visualizations using Python's most powerful plotting libraries",
+    "duration": "55 min",
+    "description": "Build interactive dashboards and business reports using Tableau's powerful visualization tools",
     "videoUrl": "https://www.youtube.com/watch?v=UO98lJQ3QGI",
-    "tags": ["Python", "Matplotlib", "Seaborn", "Visualization"],
+    "tags": ["Tableau", "Business Intelligence", "Dashboards", "Reporting"],
     "createdAt": "2025-08-13T10:13:42.949Z"
   },
   {
     "id": 6,
-    "title": "Data Science Concepts Quiz",
+    "title": "Statistical Analysis Skills Test",
     "type": "quiz",
-    "category": "Data Science",
+    "category": "Statistics",
     "level": "Advanced",
-    "duration": "25 min",
-    "description": "Test your understanding of statistical concepts and data science methodologies",
-    "tags": ["Statistics", "Data Science", "Machine Learning", "Analytics"],
+    "duration": "35 min",
+    "description": "Comprehensive assessment of statistical concepts, hypothesis testing, and data interpretation",
+    "tags": ["Statistics", "Hypothesis Testing", "Data Analysis", "Research"],
     "quizData": {
       "questions": [
         {
-          "question": "What is the difference between supervised and unsupervised learning?",
+          "question": "What is the purpose of a p-value in hypothesis testing?",
           "options": [
-            "Supervised uses labeled data, unsupervised doesn't",
-            "Supervised is faster than unsupervised",
-            "Unsupervised is more accurate",
-            "No difference"
-          ],
-          "correct": 0
-        },
-        {
-          "question": "Which metric is best for evaluating a classification model with imbalanced classes?",
-          "options": [
-            "Accuracy",
-            "F1-Score",
-            "Mean Squared Error",
-            "R-squared"
+            "To measure effect size",
+            "To determine statistical significance",
+            "To calculate confidence intervals",
+            "To measure correlation strength"
           ],
           "correct": 1
         },
         {
-          "question": "What does overfitting mean in machine learning?",
+          "question": "Which measure of central tendency is most affected by outliers?",
           "options": [
-            "Model performs well on training data but poorly on test data",
-            "Model has too few parameters",
-            "Model performs poorly on both training and test data",
-            "Model is too simple"
+            "Mean",
+            "Median",
+            "Mode",
+            "Range"
           ],
           "correct": 0
         },
         {
-          "question": "Which Python library is commonly used for data manipulation and analysis?",
+          "question": "What does a correlation coefficient of -0.85 indicate?",
           "options": [
-            "NumPy",
-            "Pandas",
-            "Matplotlib",
-            "All of the above"
+            "Strong positive relationship",
+            "Weak negative relationship", 
+            "Strong negative relationship",
+            "No relationship"
           ],
-          "correct": 3
+          "correct": 2
+        },
+        {
+          "question": "In A/B testing, what is a Type I error?",
+          "options": [
+            "Failing to detect a real effect",
+            "Detecting an effect that doesn't exist",
+            "Using wrong sample size",
+            "Incorrect randomization"
+          ],
+          "correct": 1
         }
       ]
     },

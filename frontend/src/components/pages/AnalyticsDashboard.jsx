@@ -219,7 +219,7 @@ export function AnalyticsDashboard({ onBack }) {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 p-4">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
           <div className="flex items-center space-x-4">
             <Button 
               variant="ghost" 
@@ -231,18 +231,18 @@ export function AnalyticsDashboard({ onBack }) {
               </svg>
               Back to Dashboard
             </Button>
-            <div>
+            <div className="text-center lg:text-left">
               <h1 className="text-3xl font-bold text-white">Learning Analytics</h1>
               <p className="text-gray-400">Insights from clickstream data</p>
             </div>
           </div>
-          <Button onClick={fetchAnalytics} className="bg-blue-600 hover:bg-blue-700 mr-4">
-            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-            Refresh Data
-          </Button>
-          <div className="flex space-x-2">
+          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+            <Button onClick={fetchAnalytics} className="bg-blue-600 hover:bg-blue-700">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              Refresh Data
+            </Button>
             <Button onClick={exportToCSV} variant="outline" className="bg-green-600 hover:bg-green-700 text-white border-green-600">
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -259,7 +259,7 @@ export function AnalyticsDashboard({ onBack }) {
         </div>
 
         {/* Overview Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card className="bg-white/5 backdrop-blur-sm border-white/10">
             <CardHeader className="pb-3">
               <CardTitle className="text-lg text-white">Total Events</CardTitle>
@@ -311,13 +311,13 @@ export function AnalyticsDashboard({ onBack }) {
               <CardDescription className="text-gray-400">Distribution of user interactions</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {Object.entries(analytics.eventTypes).map(([eventType, count]) => (
-                  <div key={eventType} className="text-center">
-                    <Badge variant="outline" className="bg-white/10 text-gray-300 mb-2">
+                  <div key={eventType} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                    <Badge variant="outline" className="bg-white/10 text-gray-300">
                       {eventType.replace('_', ' ').toUpperCase()}
                     </Badge>
-                    <div className="text-2xl font-semibold text-white">{count}</div>
+                    <div className="text-xl font-semibold text-white">{count}</div>
                   </div>
                 ))}
               </div>

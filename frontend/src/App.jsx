@@ -458,76 +458,111 @@ function LearningDashboard() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="space-y-8">
           {/* Welcome Section */}
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent tracking-tight">Learning Analytics Hub</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Monitor your educational journey, discover new content, and accelerate your learning with intelligent analytics.
-            </p>
-          </div>
-
-          {/* Analytics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-              <CardContent className="flex items-center justify-between p-6">
-                <div className="space-y-2">
-                  <p className="text-purple-300 text-sm font-medium">Learning Modules</p>
-                  <p className="text-3xl font-bold">{analyticsSummary.totalLearningModules}</p>
+          <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+            <div className="flex flex-col space-y-6">
+              <div className="text-center space-y-4">
+                <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent tracking-tight">Learning Analytics Hub</h2>
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                  Welcome back! Monitor your educational journey, discover new content, and accelerate your learning with intelligent analytics.
+                </p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">🎯 Smart Learning</Badge>
+                  <Badge className="bg-pink-500/20 text-pink-300 border-pink-500/30">📊 Progress Tracking</Badge>
+                  <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30">🚀 Data Insights</Badge>
                 </div>
-                <div className="bg-white/10 rounded-xl p-3">
-                  <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button onClick={handleExploreCourses} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.168 18.477 18.582 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  Explore Modules
+                </Button>
+                <Button onClick={handleViewAnalytics} variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
+                  View Analytics
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Analytics Grid - Enhanced Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-gradient-to-br from-purple-600/10 to-purple-800/10 backdrop-blur-sm border border-purple-500/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="bg-purple-500/20 rounded-full p-3 group-hover:bg-purple-500/30 transition-colors">
+                    <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.168 18.477 18.582 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
+                  <Badge className="bg-purple-500/20 text-purple-300 text-xs">Available</Badge>
+                </div>
+                <div className="space-y-1">
+                  <p className="text-2xl font-bold text-white">{analyticsSummary.totalLearningModules}</p>
+                  <p className="text-purple-300 text-sm">Learning Modules</p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-              <CardContent className="flex items-center justify-between p-6">
-                <div className="space-y-2">
-                  <p className="text-green-300 text-sm font-medium">Completed</p>
-                  <p className="text-3xl font-bold">{analyticsSummary.completedModules}</p>
+            <Card className="bg-gradient-to-br from-emerald-600/10 to-green-800/10 backdrop-blur-sm border border-emerald-500/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="bg-emerald-500/20 rounded-full p-3 group-hover:bg-emerald-500/30 transition-colors">
+                    <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <Badge className="bg-emerald-500/20 text-emerald-300 text-xs">Progress</Badge>
                 </div>
-                <div className="bg-white/10 rounded-xl p-3">
-                  <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-              <CardContent className="flex items-center justify-between p-6">
-                <div className="space-y-2">
-                  <p className="text-blue-300 text-sm font-medium">Study Hours</p>
-                  <p className="text-3xl font-bold">{analyticsSummary.totalStudyHours}h</p>
-                </div>
-                <div className="bg-white/10 rounded-xl p-3">
-                  <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                <div className="space-y-1">
+                  <p className="text-2xl font-bold text-white">{analyticsSummary.completedModules}</p>
+                  <p className="text-emerald-300 text-sm">Completed</p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-              <CardContent className="flex items-center justify-between p-6">
-                <div className="space-y-2">
-                  <p className="text-pink-300 text-sm font-medium">Earned Badges</p>
-                  <p className="text-3xl font-bold">{analyticsSummary.earnedBadges}</p>
+            <Card className="bg-gradient-to-br from-cyan-600/10 to-blue-800/10 backdrop-blur-sm border border-cyan-500/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="bg-cyan-500/20 rounded-full p-3 group-hover:bg-cyan-500/30 transition-colors">
+                    <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <Badge className="bg-cyan-500/20 text-cyan-300 text-xs">Learning</Badge>
                 </div>
-                <div className="bg-white/10 rounded-xl p-3">
-                  <svg className="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                  </svg>
+                <div className="space-y-1">
+                  <p className="text-2xl font-bold text-white">{analyticsSummary.totalStudyHours}h</p>
+                  <p className="text-cyan-300 text-sm">Study Hours</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-rose-600/10 to-pink-800/10 backdrop-blur-sm border border-rose-500/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="bg-rose-500/20 rounded-full p-3 group-hover:bg-rose-500/30 transition-colors">
+                    <svg className="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                  </div>
+                  <Badge className="bg-rose-500/20 text-rose-300 text-xs">Achievements</Badge>
+                </div>
+                <div className="space-y-1">
+                  <p className="text-2xl font-bold text-white">{analyticsSummary.earnedBadges}</p>
+                  <p className="text-rose-300 text-sm">Earned Badges</p>
                 </div>
               </CardContent>
             </Card>
           </div>
 
           {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Left Column - Learning Actions */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-3 space-y-8">
               {/* Learning Actions Card */}
               <Card className="shadow-xl border-0 bg-white/5 backdrop-blur-sm">
                 <CardHeader className="pb-4">
@@ -540,52 +575,56 @@ function LearningDashboard() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <Button 
-                      onClick={handleExploreCourses}
-                      className="h-24 bg-gradient-to-br from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
-                    >
-                      <div className="text-center space-y-2">
-                        <div className="text-3xl group-hover:scale-110 transition-transform duration-300">📚</div>
-                        <div className="text-sm font-semibold">Explore Modules</div>
-                      </div>
-                    </Button>
-                    <Button 
-                      onClick={handleTakeQuiz}
-                      className="h-24 bg-gradient-to-br from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
-                    >
-                      <div className="text-center space-y-2">
-                        <div className="text-3xl group-hover:scale-110 transition-transform duration-300">🧠</div>
-                        <div className="text-sm font-semibold">Take Assessment</div>
-                      </div>
-                    </Button>
-                    <Button 
-                      onClick={handleWatchVideos}
-                      className="h-24 bg-gradient-to-br from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
-                    >
-                      <div className="text-center space-y-2">
-                        <div className="text-3xl group-hover:scale-110 transition-transform duration-300">�</div>
-                        <div className="text-sm font-semibold">Watch Content</div>
-                      </div>
-                    </Button>
-                    <Button 
-                      onClick={handleViewAnalytics}
-                      className="h-24 bg-gradient-to-br from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
-                    >
-                      <div className="text-center space-y-2">
-                        <div className="text-3xl group-hover:scale-110 transition-transform duration-300">�</div>
-                        <div className="text-sm font-semibold">View Analytics</div>
-                      </div>
-                    </Button>
-                    <Button 
-                      onClick={handleViewProgress}
-                      className="h-24 bg-gradient-to-br from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
-                    >
-                      <div className="text-center space-y-2">
-                        <div className="text-3xl group-hover:scale-110 transition-transform duration-300">📊</div>
-                        <div className="text-sm font-semibold">Progress Tracking</div>
-                      </div>
-                    </Button>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <Button 
+                        onClick={handleExploreCourses}
+                        className="h-20 bg-gradient-to-br from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="text-2xl group-hover:scale-110 transition-transform duration-300">📚</div>
+                          <div className="text-sm font-semibold">Explore Modules</div>
+                        </div>
+                      </Button>
+                      <Button 
+                        onClick={handleTakeQuiz}
+                        className="h-20 bg-gradient-to-br from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="text-2xl group-hover:scale-110 transition-transform duration-300">🧠</div>
+                          <div className="text-sm font-semibold">Take Assessment</div>
+                        </div>
+                      </Button>
+                      <Button 
+                        onClick={handleWatchVideos}
+                        className="h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="text-2xl group-hover:scale-110 transition-transform duration-300">🎥</div>
+                          <div className="text-sm font-semibold">Watch Content</div>
+                        </div>
+                      </Button>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <Button 
+                        onClick={handleViewAnalytics}
+                        className="h-20 bg-gradient-to-br from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="text-2xl group-hover:scale-110 transition-transform duration-300">📈</div>
+                          <div className="text-sm font-semibold">View Analytics</div>
+                        </div>
+                      </Button>
+                      <Button 
+                        onClick={handleViewProgress}
+                        className="h-20 bg-gradient-to-br from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="text-2xl group-hover:scale-110 transition-transform duration-300">📊</div>
+                          <div className="text-sm font-semibold">Progress Tracking</div>
+                        </div>
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>

@@ -160,25 +160,38 @@ export function CoursesPage({ onBack, onSelectCourse }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
       <div className="max-w-7xl mx-auto space-y-8">
-        {/* Header */}
-        <div className="flex items-center justify-between">
-          <div className="space-y-2">
-            <div className="flex items-center space-x-3">
-              <Button 
-                variant="ghost" 
-                onClick={onBack}
-                className="text-purple-300 hover:text-white hover:bg-white/10"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                Back to Analytics Hub
-              </Button>
+        {/* Enhanced Header Section */}
+        <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-6 lg:space-y-0">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <Button 
+                  variant="ghost" 
+                  onClick={onBack}
+                  className="text-purple-300 hover:text-white hover:bg-white/10 px-3 py-2"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  Back to Hub
+                </Button>
+              </div>
+              <div className="space-y-3">
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Learning Modules</h1>
+                <p className="text-xl text-gray-300 max-w-2xl">
+                  Discover cutting-edge educational content designed for modern data science and analytics learning
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">🚀 Interactive Content</Badge>
+                  <Badge className="bg-pink-500/20 text-pink-300 border-pink-500/30">📊 Skill Building</Badge>
+                  <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30">🎯 Hands-on Practice</Badge>
+                </div>
+              </div>
             </div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Explore Learning Modules</h1>
-            <p className="text-xl text-gray-300">
-              Discover interactive educational content and assessments
-            </p>
+            <div className="text-center lg:text-right">
+              <div className="text-3xl font-bold text-white">{filteredModules.length}</div>
+              <div className="text-purple-300">Modules Available</div>
+            </div>
           </div>
         </div>
 
@@ -266,94 +279,110 @@ export function CoursesPage({ onBack, onSelectCourse }) {
             </CardContent>
           </Card>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {filteredModules.map((module) => {
               const typeInfo = getContentTypeInfo(module.type);
               return (
                 <Card 
                   key={module.id} 
-                  className="bg-white/5 backdrop-blur-sm border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer group"
+                  className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer group overflow-hidden"
                   onClick={() => handleModuleSelect(module)}
                 >
+                  {/* Header with Type Indicator */}
+                  <div className={`h-2 bg-gradient-to-r ${
+                    module.type === 'text' ? 'from-purple-500 to-purple-600' :
+                    module.type === 'video' ? 'from-pink-500 to-pink-600' :
+                    'from-blue-500 to-blue-600'
+                  }`}></div>
+                  
                   <CardHeader className="pb-4">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center space-x-3">
-                        <div className={`${typeInfo.color} text-white rounded-lg p-2 shadow-lg`}>
-                          <span className="text-xl">{typeInfo.icon}</span>
+                        <div className={`${typeInfo.color} text-white rounded-xl p-3 shadow-lg group-hover:scale-110 transition-transform`}>
+                          <span className="text-2xl">{typeInfo.icon}</span>
                         </div>
-                        <div className="flex flex-col gap-1">
-                          <Badge variant="outline" className="bg-white/10 text-gray-300 border-white/20 w-fit">
+                        <div className="space-y-2">
+                          <Badge variant="outline" className="bg-white/10 text-gray-300 border-white/20 text-xs">
                             {typeInfo.label}
                           </Badge>
                           {module.level && (
-                            <Badge variant="outline" className="bg-green-500/20 text-green-300 border-green-500/20 w-fit text-xs">
+                            <Badge className={`text-xs ${
+                              module.level === 'Beginner' ? 'bg-green-500/20 text-green-300 border-green-500/30' :
+                              module.level === 'Intermediate' ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' :
+                              'bg-red-500/20 text-red-300 border-red-500/30'
+                            }`}>
                               {module.level}
                             </Badge>
                           )}
                         </div>
                       </div>
                       {module.duration && (
-                        <Badge variant="outline" className="bg-pink-500/20 text-pink-300 border-pink-500/20">
-                          {module.duration}
+                        <Badge variant="outline" className="bg-indigo-500/20 text-indigo-300 border-indigo-500/20 text-xs">
+                          ⏱️ {module.duration}
                         </Badge>
                       )}
                     </div>
-                    <CardTitle className="text-xl text-white group-hover:text-purple-200 transition-colors">
-                      {module.title}
-                    </CardTitle>
-                    <CardDescription className="text-gray-400">
-                      {module.description || 'No description available'}
-                    </CardDescription>
                     
-                    {/* Category and Tags */}
-                    <div className="space-y-2 mt-3">
-                      {module.category && (
-                        <div className="flex items-center space-x-2">
-                          <span className="text-xs text-gray-500">Category:</span>
-                          <Badge variant="outline" className="bg-purple-500/20 text-purple-300 border-purple-500/20 text-xs">
-                            {module.category}
-                          </Badge>
-                        </div>
-                      )}
-                      {module.tags && module.tags.length > 0 && (
+                    <div className="space-y-3 mt-4">
+                      <CardTitle className="text-xl text-white group-hover:text-purple-200 transition-colors leading-tight">
+                        {module.title}
+                      </CardTitle>
+                      <CardDescription className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+                        {module.description || 'No description available'}
+                      </CardDescription>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent className="pt-0">
+                    {/* Category */}
+                    {module.category && (
+                      <div className="mb-4">
+                        <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/20 text-xs">
+                          📁 {module.category}
+                        </Badge>
+                      </div>
+                    )}
+                    
+                    {/* Tags */}
+                    {module.tags && module.tags.length > 0 && (
+                      <div className="space-y-2">
+                        <div className="text-xs text-gray-500 font-medium">Skills:</div>
                         <div className="flex flex-wrap gap-1">
-                          {module.tags.slice(0, 3).map((tag, index) => (
+                          {module.tags.slice(0, 4).map((tag, index) => (
                             <Badge 
                               key={index} 
                               variant="outline" 
-                              className="bg-indigo-500/20 text-indigo-300 border-indigo-500/20 text-xs"
+                              className="bg-cyan-500/10 text-cyan-300 border-cyan-500/20 text-xs hover:bg-cyan-500/20 transition-colors"
                             >
                               {tag}
                             </Badge>
                           ))}
-                          {module.tags.length > 3 && (
+                          {module.tags.length > 4 && (
                             <Badge 
                               variant="outline" 
                               className="bg-gray-500/20 text-gray-300 border-gray-500/20 text-xs"
                             >
-                              +{module.tags.length - 3}
+                              +{module.tags.length - 4}
                             </Badge>
                           )}
                         </div>
-                      )}
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="pt-0">
-                    <Separator className="mb-4 bg-white/10" />
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="text-xs text-gray-500">
-                        Created: {new Date(module.createdAt).toLocaleDateString()}
                       </div>
+                    )}
+
+                    {/* Action Button */}
+                    <div className="mt-6 pt-4 border-t border-white/10">
                       <Button 
-                        size="sm" 
-                        className="bg-purple-600 hover:bg-purple-700 group-hover:scale-105 transition-transform"
+                        className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg group-hover:shadow-xl transition-all"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleModuleSelect(module);
+                        }}
                       >
-                        Begin Learning
-                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+                        <span className="mr-2">
+                          {module.type === 'quiz' ? '🧠' : module.type === 'video' ? '▶️' : '📖'}
+                        </span>
+                        {module.type === 'quiz' ? 'Take Assessment' : 
+                         module.type === 'video' ? 'Watch Video' : 'Start Learning'}
                       </Button>
                     </div>
                   </CardContent>
